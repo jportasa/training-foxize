@@ -25,7 +25,7 @@ nodeGroups:
     minSize: 2
     maxSize: 5
     availabilityZones:
-      - us-east-1c # <---------Cambiar
+      - us-east-1d # <---------Cambiar
       - us-east-1f # <---------Cambiar
     instancesDistribution:
       maxPrice: 0.015
@@ -42,10 +42,14 @@ nodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly # Mandatory
         - arn:aws:iam::aws:policy/AWSCloudMapFullAccess # Para external-dns, LB pueda tener registro DNS
         - arn:aws:iam::aws:policy/AutoScalingFullAccess # Necesario para el Cluster Autoscaling
+        - arn:aws:iam::aws:policy/ALBIngressControllerIAMPolicy # Necesario si tienes ALB+ingress, crear policy antes! ver README.
       withAddOnPolicies:
         autoscaler: true
         externalDNS: true
         cloudWatch: true
+        albIngress: true # Needed if you use ALB+ingress
+        certManager: true
+        imageBuilder: true
     labels:
       instance-type: mix
     tags:

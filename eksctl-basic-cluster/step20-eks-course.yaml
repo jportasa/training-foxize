@@ -42,7 +42,7 @@ nodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly # Mandatory
         - arn:aws:iam::aws:policy/AWSCloudMapFullAccess # Para external-dns, LB pueda tener registro DNS
         - arn:aws:iam::aws:policy/AutoScalingFullAccess # Necesario para el Cluster Autoscaling
-        - arn:aws:iam:::policy/ALBIngressControllerIAMPolicy # Necesario si tienes ALB+ingress, crear policy antes! ver README.
+        - arn:aws:iam::586403476046:policy/ALBIngressControllerIAMPolicy # Necesario si tienes ALB+ingress, crear policy antes! ver README.
       withAddOnPolicies:
         autoscaler: true
         externalDNS: true

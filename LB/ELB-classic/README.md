@@ -30,19 +30,3 @@ spec:
       port: 80
       targetPort: 80
 ```
-
-# ALB + Ingress
-Docu: https://medium.com/tensult/alb-ingress-controller-on-aws-eks-45bf8e36020d
-
-Public subnets in your VPC should be tagged accordingly so that Kubernetes knows to use only those subnets for external load balancers.
-
-Key:  kubernetes.io/role/elb
-
-Value: 1
-
-```
-helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
-```
-```
-helm install incubator/aws-alb-ingress-controller --set clusterName=EKS-cluster-joan-porta --set autoDiscoverAwsRegion=true --set autoDiscoverAwsVpcID=true --name alb-name --namespace kube-system
-```

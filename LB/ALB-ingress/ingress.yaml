@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations: # Docu: https://kubernetes-sigs.github.io/aws-alb-ingress-controller/guide/ingress/annotation/
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    external-dns.alpha.kubernetes.io/hostname: puppu.pepe.es, poropopo.pepe.es # Dominios separados por comas, los dominios hay que crearlsos previamente en Route53
+    kubernetes.io/ingress.class: alb  # Levantará un ALB en AWS, la etiqueta hace match con la definición del ALB
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}, {"HTTP": 8080}, {"HTTPS": 8443}]'
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:us-east-1:953835556803:certificate/2eae1d1f-766b-4fa7-ae7f-54b7f69819c3" # Certificados separados por comas
+  name: "2048-ingress"
+  namespace: "2048-game"
+  labels:
+    app: 2048-ingress
+spec:
+  rules:
+  - host: puppu.pepe.es
+    http:
+      paths:
+      - path: /* #
+        backend:
+          serviceName: "service-2048"
+          servicePort: 80

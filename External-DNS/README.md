@@ -28,7 +28,20 @@ Modificar valores en external-dns-deployment.yaml
 ```
 $ kubectl apply -f external-dns-deployment.yaml
 ```
-crear service+Deployment para tetear
+crear service+Deployment para testear
 ```
 $ kubectl apply -f nginx-deployment.yaml
+```
+
+
+# Desde helm
+Docu: https://github.com/helm/charts/tree/master/stable/external-dns
+```
+helm install my-external-dns \
+  --set provider=aws-sd \
+  --set aws.zoneType=public \
+  --set txtOwnerId=Z2PB21X1TQL25J \
+  --set domainFilters[0]=pepe.es \
+  --namespace kube-system \
+  stable/external-dns
 ```

@@ -18,7 +18,7 @@ spec:
   restartPolicy: Never
   containers:
   - name: aws-cli
-    command: ["sleep", "infinite"]
+    command: ["sleep", "10000"]
     image: mikesir87/aws-cli
 EOF
 ```

@@ -9,7 +9,7 @@ kubectl create namespace logging
 helm install logs-to-cloudwatch \
   --set awsRegion=us-east-1 \
   --set rbac.create=true \
-  --namespace logging
+  --namespace logging \
     incubator/fluentd-cloudwatch
 ```
 

@@ -20,7 +20,6 @@ iam:
           labels: {aws-usage: "application"}
         attachPolicyARNs:
           - "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
-
 nodeGroups:
   - name: mix
     minSize: 2

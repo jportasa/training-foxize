@@ -69,3 +69,7 @@ aws iam create-policy \
     --policy-document file://k8s-logs-policy.json
 ```
 
+# Crear OIDC provider para poder asignar IAM roles a service accounts
+```
+eksctl utils associate-iam-oidc-provider --config-file=<eksctl cluster config path yaml>
+```

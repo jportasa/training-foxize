@@ -27,7 +27,7 @@ nodeGroups:
     maxSize: 5
     availabilityZones:
       - us-east-1b # <---------Cambiar
-      - us-east-1f # <---------Cambiar
+      - us-east-1c # <---------Cambiar
     instancesDistribution:
       maxPrice: 0.015
       instanceTypes: ["t2.small", "t3.small"]

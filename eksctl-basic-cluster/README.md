@@ -3,11 +3,6 @@ EKS Cluster VPC requirements
 https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
 
 
-If you plan to have ALB+ingress create the policy
-```
-./ALBIngressControllerIAMPolicy.sh
-```
-
 Create cluster
 ```
 eksctl create cluster -f step20-eks-course.yaml
